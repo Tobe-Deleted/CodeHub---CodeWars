@@ -1,0 +1,22 @@
+using System;
+​
+// weight, index, nmbr
+public class ClosestWeight
+{
+    public static int[][] Closest(string strng) 
+    {
+        if(strng == "") return new int[0][];
+        int[][] result = new int[2][];
+        string[] numbers = strng.Split(' ');
+        int[] sortedWeights = new int[numbers.Length];
+        int[] weights = new int[numbers.Length];
+        int i = 0;
+        foreach(string str in numbers)
+        {
+            int weight = 0;
+            foreach(char ch in str)
+            {
+                weight += Convert.ToInt32(ch) -48;
+            }
+            sortedWeights[i] = weight;
+            weights[i] = weight;
