@@ -1,0 +1,7 @@
+using System;
+​
+public class Kata
+{
+  public static string AreYouPlayingBanjo(string name) 
+    => name.ToLower()[0] == 'r' ? name + " plays banjo" :  name + " does not play banjo";
+}
