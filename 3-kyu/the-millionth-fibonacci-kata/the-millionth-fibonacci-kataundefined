@@ -1,0 +1,26 @@
+using System.Numerics;
+using System;
+​
+public class Fibonacci
+{
+​
+    public static BigInteger fib(int n)
+    {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+​
+        int absN = Math.Abs(n);
+        BigInteger[,] baseMatrix = { { 1, 1 }, { 1, 0 } };
+​
+        BigInteger[,] result = IterativeMatrixPower(baseMatrix, absN - 1);
+​
+        return (n < 0 && absN % 2 == 0) ? -result[0, 0] : result[0, 0];
+    }
+​
+    private static BigInteger[,] IterativeMatrixPower(BigInteger[,] matrix, int n)
+    {
+        BigInteger[,] result = { { 1, 0 }, { 0, 1 } }; 
+​
+        while (n > 0)
+        {
+            if ((n&1)==1) 
