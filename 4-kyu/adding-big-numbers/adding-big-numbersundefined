@@ -1,0 +1,11 @@
+using System;
+using System.Numerics;
+​
+public class Kata
+{
+  public static string Add(string a, string b)
+  {
+    BigInteger[] nums = {BigInteger.Parse(a), BigInteger.Parse(b)};
+    return Convert.ToString(nums[1] + nums[0]);
+  }
+}
