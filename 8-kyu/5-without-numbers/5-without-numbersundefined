@@ -1,0 +1,7 @@
+class Kata
+{
+    public static int UnusualFive()
+    {
+        return "fiske".Length;
+    }
+}
