@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using System;
+using System.Numerics;
+public class Primes
+{
+   public static IEnumerable<int> Stream()
+   {
+        yield return 2;
+        int max = 16000000;
+        
+        List<int> primes = new List<int> {2};
+        for(int i = 3; i < max; i += 2)
+        {
+            bool isPrime = true;
+            int boundary = (int)Math.Sqrt(i);
+            
+            foreach(int p in primes)
+            {
+                if(p > boundary) break;
+​
+                if(i % p == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
+            }
+​
+            if(isPrime) 
+            {
+                primes.Add(i);
+                yield return i;
+            }
+        }
+    }
+}
