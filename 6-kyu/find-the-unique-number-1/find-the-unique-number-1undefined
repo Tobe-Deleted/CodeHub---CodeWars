@@ -1,0 +1,10 @@
+using System.Collections.Generic;
+using System.Linq;
+​
+public class Kata
+{
+    public static int GetUnique(IEnumerable<int> numbers)
+    {
+        return numbers.Last(n => numbers.Count(i => i == n) == 1);
+    }
+}
