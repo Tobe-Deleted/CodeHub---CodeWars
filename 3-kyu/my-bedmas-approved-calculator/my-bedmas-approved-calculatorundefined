@@ -1,0 +1,12 @@
+ 
+using System;
+using System.Data;
+​
+public static class Kata 
+{
+    public static double Calculate(string s)
+    {
+        DataTable dt = new DataTable();
+        return Convert.ToDouble(dt.Compute(s, ""));
+    }
+}
