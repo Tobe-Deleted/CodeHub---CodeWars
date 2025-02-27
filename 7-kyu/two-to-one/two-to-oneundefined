@@ -1,0 +1,12 @@
+using System.Linq;
+using System;
+public class TwoToOne 
+{
+  
+    public static string Longest (string s1, string s2) 
+    {
+        char[] characters = (s1 + s2 + "").Distinct().ToArray();
+        Array.Sort(characters);
+        return new string(characters);
+    }
+}
