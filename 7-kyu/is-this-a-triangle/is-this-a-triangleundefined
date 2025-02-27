@@ -1,0 +1,19 @@
+using System;
+public class Triangle
+{
+    public static bool IsTriangle(int a, int b, int c)
+    {
+        Console.WriteLine($"{a} + {b} + {c}");
+        if (
+            a > 0 &&
+            b > 0 &&
+//             c > 0 &&
+            Math.Abs(a - (b+c)) != 0 && 
+            Math.Abs(b - (a+c)) != 0 && 
+            Math.Abs(c - (a+b)) != 0 )
+        {
+            return true;
+        }
+        return false;
+    }
+}
