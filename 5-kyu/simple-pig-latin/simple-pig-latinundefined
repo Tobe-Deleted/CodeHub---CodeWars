@@ -1,0 +1,21 @@
+using System;
+​
+public class Kata
+{
+    public static string PigIt(string str)
+    {
+        string result = "";
+        foreach(string s in str.Split(' '))
+        {
+            if(Char.IsLetter(s[0]))
+            {
+                result += $"{s.Remove(0,1)}{s[0]}ay ";
+            }
+            else
+            {
+                result += s;
+            }
+        }
+        return result.Trim();
+    }
+}
