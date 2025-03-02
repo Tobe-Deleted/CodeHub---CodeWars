@@ -1,0 +1,16 @@
+using System;
+​
+class Arge {
+    
+    public static int NbYear(int p0, double percent, int aug, int p) 
+    {
+        double population = p0;
+​
+      for(int i = 1; i < Int32.MaxValue; i++)
+        {
+            population += Math.Floor((population * percent /100) + aug);
+            if(population >= p)return i;
+        }
+        return 0;
+    }
+}
