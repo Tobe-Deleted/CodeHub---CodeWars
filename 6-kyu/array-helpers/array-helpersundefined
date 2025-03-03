@@ -1,0 +1,31 @@
+        }
+        return result;
+    }
+    public static int Sum(this int[] numbers)
+    {
+        int result = 0;
+        for(int i = 0; i < numbers.Length; i++)
+        {
+              result += numbers[i];
+        }
+        return result;
+    }
+    public static double Average(this int[] numbers)
+    {
+        if(numbers.Length == 0) return double.NaN;
+        int result = 0;
+        for(int i = 0; i < numbers.Length; i++)
+        {
+              result += numbers[i];
+        }
+        return (double)result / numbers.Length;
+    }
+    public static int[] Even(this int[] numbers)
+    {
+        return numbers.Where(x => x % 2 == 0).ToArray();
+    }
+    public static int[] Odd(this int[] numbers)
+    {
+        return numbers.Where(x => x % 2 != 0).ToArray();
+    }
+}
