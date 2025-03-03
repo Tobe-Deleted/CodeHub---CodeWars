@@ -1,0 +1,15 @@
+using System;
+public class Kata
+{
+    public int Min(int[] list)
+    {
+        Array.Sort(list);
+        return list[0];
+    }
+​
+    public int Max(int[] list)
+    {
+        Array.Sort(list);
+        return list[^1];
+    }
+}
