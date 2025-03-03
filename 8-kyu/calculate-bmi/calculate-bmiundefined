@@ -1,0 +1,20 @@
+public class Kata
+{
+    public static string Bmi(double weight, double height)
+    {
+        double bmi = weight / (height * height);
+        switch(bmi)
+        {
+            case var expression when bmi <= 18.5:
+                return "Underweight";
+            case var expression when bmi <= 25:
+                return "Normal";
+            case var expression when bmi <= 30:
+                return "Overweight";
+            case var expression when bmi > 30:
+                return "Obese";
+            default:
+                return null;
+        }
+    }
+}
