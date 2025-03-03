@@ -1,0 +1,17 @@
+using System;
+​
+public class Printer 
+{
+    public static string PrinterError(String s) 
+    {
+        Console.WriteLine(s);
+        string atom = "abcdefghijklm";
+        int bad = 0;
+        foreach(char ch in s)
+        {
+            if(!atom.Contains(ch)) bad++;
+        }
+        
+        return bad + "/" + s.Length;
+    }
+}
