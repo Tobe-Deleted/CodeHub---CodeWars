@@ -1,0 +1,19 @@
+using System;
+using System.Reflection;
+namespace Solution 
+{
+    class BagelSolver 
+    {
+        public static Bagel Bagel 
+        {
+            get
+            {
+                Bagel bagel = new Bagel();
+                
+                var newValue = typeof(Bagel).GetProperty("Value");
+                newValue.SetValue(bagel, 4);
+                return bagel;
+            }
+        }
+    }
+}
