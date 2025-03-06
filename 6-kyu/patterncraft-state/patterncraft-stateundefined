@@ -1,0 +1,48 @@
+using System;
+​
+public interface IUnit
+{
+    IUnitState State { get; set; }
+    bool CanMove { get; }
+    int Damage { get; }
+}
+​
+public interface IUnitState
+{
+    bool CanMove { get; }
+    int Damage { get; }
+}
+​
+public class SiegeState : IUnitState
+{
+    public bool CanMove => false;
+    public int Damage => 20;
+}
+​
+public class TankState : IUnitState
+{
+    public bool CanMove => true;
+    public int Damage => 5;
+}
+​
+public class Tank : IUnit
+{
+    public Tank()
+    {
+        State = new TankState();
+    }
+  
+    private IUnitState _state;
+    
+    public IUnitState State
+    {
+        get => _state;
+        set
+        {
+            _state = value;
+        }
+    }
+    public bool CanMove => State.CanMove;
+    public int Damage => State.Damage;
+​
+}
