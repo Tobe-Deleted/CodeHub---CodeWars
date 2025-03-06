@@ -1,0 +1,32 @@
+namespace Solution {
+  using System.Collections.Generic;
+​
+  class Kata{
+    public static Dictionary<string, int> get_animals_count(int legs_number, int heads_number, int horns_number)
+    {
+        int cows = horns_number / 2;
+        int rabbits = 0;
+        int chickens = 0;
+        heads_number += -cows;
+        legs_number += -4 * cows;
+        int difference = (heads_number * 4) - legs_number;
+        if(difference == 0) rabbits = heads_number;
+        for(int i = 1; difference > 0; i++)
+        {
+            difference += -2;
+            if(difference == 0)
+            {
+                chickens = i;
+                rabbits = heads_number - i;
+            }
+        }
+        
+        return new Dictionary<string, int>()
+        {
+            {"rabbits", rabbits},
+            {"chickens", chickens},
+            {"cows", cows}
+        };
+    }
+  }
+}
