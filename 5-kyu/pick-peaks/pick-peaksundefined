@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+public class PickPeaks
+{
+    public static Dictionary<string, List<int>> GetPeaks(int[] arr)
+    {
+        var result = new Dictionary<string, List<int>>
+        {
+            { "pos", new List<int>() },
+            { "peaks", new List<int>() }
+        };
+        foreach(int n in arr)Console.WriteLine(n);
+        if(arr.Length < 3) return result;
+      
+        for(int i = 1; i < arr.Length -1; i++)
+        {
+           if(arr[i] > arr[i-1])
+           {
+              int pos = i;
+              try
+              {
+                while(arr[i+1] == arr[pos])
+                {
+                    i++;
+                }
+              }
+              catch
+              {
+                  return result;
+              }
+              if(arr[i+1] < arr[pos])
+              {
+                  result["peaks"].Add(arr[pos]);
+                  result["pos"].Add(pos);
+              }
+           }
+        }
+        return result;
+    }
+}
