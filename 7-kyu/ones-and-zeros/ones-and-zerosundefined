@@ -1,0 +1,18 @@
+namespace Solution
+{
+  class Kata
+    {
+        public static int binaryArrayToNumber(int[] BinaryArray)
+        {
+            int range = BinaryArray.Length;
+            int bitValue = 1 << range;
+            int result = 0;
+            for(int i = 0; i < range; i++)
+            {
+                bitValue >>= 1;
+                result += BinaryArray[i] * bitValue;
+            }
+            return result;
+        }
+    }
+}
