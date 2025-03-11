@@ -1,0 +1,12 @@
+using System;
+using System.Linq;
+​
+public static class Kata
+{
+    public static string ReverseWords(string str)
+    {
+        string[] arr = str.Split(' ');
+        Array.Reverse(arr);
+        return new string(String.Join(" ", arr).Reverse().ToArray());
+    }
+}
