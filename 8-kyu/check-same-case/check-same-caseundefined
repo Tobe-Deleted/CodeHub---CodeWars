@@ -1,0 +1,17 @@
+using System;
+public class Kata 
+{
+    public static int SameCase(char a, char b) 
+    {
+        if(Char.IsLetter(a) && Char.IsLetter(b))
+        {
+            if(Convert.ToInt32(a) < 93 && Convert.ToInt32(b) < 93 ||
+               Convert.ToInt32(a) > 93 && Convert.ToInt32(b) > 93)
+            {
+                return 1;
+            }
+            return 0;
+        }
+        return -1;
+    }
+}
