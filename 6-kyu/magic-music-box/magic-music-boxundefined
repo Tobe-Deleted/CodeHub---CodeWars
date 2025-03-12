@@ -1,41 +1,42 @@
+ 
 using System.Collections.Generic;
-using System;
-using System.Linq;
 ​
 public static class Kata
 {
     public static string[] MagicMusicBox(string[] words)
     {
-        string [] notes = {"DO", "RE", "MI", "FA", "SOL", "LA", "SI"};
-        HashSet<string> usedWords = new HashSet<string>();
-        bool loop = false;
-        bool loop2 = false;
-        int noteNum = 0;
-        int wl = words.Length; 
+        string[] notes = { "DO", "RE", "MI", "FA", "SOL", "LA", "SI" };
+        HashSet<string> usedWords = new HashSet<string>(); 
         List<string> result = new List<string>();
-        for(int i = 0; i < wl; i++)
+​
+        int noteNum = 0;
+        bool loop = false, loop2 = false;
+        int wl = words.Length;
+​
+        for (int i = 0; i < wl; i++)
         {
-            if(noteNum == notes.Length)
+            if (noteNum == notes.Length) // If we've processed all notes
             {
-                if(loop2)break;
+                if (loop2) break; // If we've already tried adding leftovers, we're done
                 loop2 = true;
                 noteNum = 0;
-​
             }
-            if(words[i].Contains(notes[noteNum]) && usedWords.Add(words[i]))
+​
+            if (words[i].Contains(notes[noteNum]) && usedWords.Add(words[i])) 
             {
                 result.Add(words[i]);
                 noteNum++;
                 loop2 = false;
                 loop = true;
             }
-            if (i == wl -1 && loop)
+​
+            if (i == wl - 1 && loop) // If we reached the end but added words, reset loop
             {
                 i = -1;
                 loop = false;
             }
         }
+​
         return result.ToArray();
     }
 }
-​
