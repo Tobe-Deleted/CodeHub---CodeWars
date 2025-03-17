@@ -1,0 +1,28 @@
+                        value = GetValue(orders[i][2], result);
+                        break;
+                    case "inc":
+                        value++;
+                        break;
+                    case "dec":
+                        value--;
+                        break;
+                    case "jnz":
+                        if(value == 0) break;
+                        i += GetValue(orders[i][2], result) -1;
+                        break;
+                }
+                if(result.ContainsKey(key))
+                {
+                    result[key] = value;
+                }
+​
+            }
+            return result;
+        }
+​
+        private static int GetValue(string input, Dictionary<string, int> result) 
+        {
+            return result.TryGetValue(input, out int value) ? value : Convert.ToInt32(input);
+        }
+    }
+}
