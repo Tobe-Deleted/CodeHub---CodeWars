@@ -1,0 +1,11 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+​
+public class Kata
+    {
+        public static int Number(List<int[]> peopleListInOut)
+        {
+            return peopleListInOut.Select(ia => (ia[0] - ia[1])).ToArray().Sum();
+        }
+    }
