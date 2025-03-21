@@ -1,0 +1,29 @@
+public static class TimeFormat
+{
+    public static string GetReadableTime(int seconds)
+    {
+        int hours = 0;
+        int minutes = 0;
+        string result = "";
+      
+        while(seconds > 3599)
+        {
+            hours++;
+            seconds += -3600;
+        }
+      
+        while(seconds > 59)
+        {
+            minutes++;
+            seconds += -60;
+        }
+      
+        if(hours < 10) result += "0";
+        result += hours + ":";
+        if(minutes < 10) result += "0";
+        result += minutes + ":";
+        if(seconds < 10) result += "0";
+        result += seconds + "";
+        return result;
+    }
+}
