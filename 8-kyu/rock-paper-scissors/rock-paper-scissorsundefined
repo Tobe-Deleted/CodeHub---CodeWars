@@ -1,18 +1,15 @@
  
 public class Kata
 {
-    private string _p1 = "Player 1 won!";
-    private string _p2 = "Player 2 won!";
-    private string _d = "Draw!";
-      
     public string Rps(string p1, string p2)
     {
-        return p1 == p2 ? _d : 
-          p1 == "scissors" ?
-            p2 == "paper" ? _p1 : _p2 :
-          p1 == "rock" ? 
-            p2 == "scissors" ? _p1 : _p2 :
-          p1 == "paper" ?
-            p2 == "rock" ? _p1 : _p2 : null;
+        return p1 == p2 ? "Draw!" : 
+            p1 == "scissors" ?
+              p2 == "paper" ? "Player 1 won!" : "Player 2 won!" :
+            p1 == "rock" ? 
+              p2 == "scissors" ? "Player 1 won!" : "Player 2 won!" :
+            p1 == "paper" ?
+              p2 == "rock" ? "Player 1 won!" : "Player 2 won!" : 
+            null;
     }
 }
