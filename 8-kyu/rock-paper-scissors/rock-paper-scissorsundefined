@@ -1,4 +1,3 @@
- 
 public class Kata
 {
     public string Rps(string p1, string p2)
