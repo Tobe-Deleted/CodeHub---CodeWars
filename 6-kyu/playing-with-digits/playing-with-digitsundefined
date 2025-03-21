@@ -1,0 +1,16 @@
+using System;
+​
+public class DigPow 
+{
+    public static long digPow(int n, int p) 
+    {
+        long k = 0;
+        string stringN = n.ToString();
+        for(int i = 0; i < stringN.Length; i++)
+        {
+            int num = stringN[i] - '0';
+            k += (long)Math.Pow(num, p+i);
+        }
+        return (double)k / n % 1 == 0 ? k / n : -1;
+    }
+}
