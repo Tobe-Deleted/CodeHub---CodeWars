@@ -1,0 +1,19 @@
+using System.Linq;
+​
+public class Kata
+{
+    public static string BreakCamelCase(string str)
+    {
+        string res = "";
+        foreach(char c in str)
+        {
+            if(char.IsUpper(c))
+            {
+                res += " ";
+            }
+            
+            res += c;
+        }
+        return res;
+    }
+}
