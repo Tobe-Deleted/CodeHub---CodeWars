@@ -1,0 +1,11 @@
+using System.Linq;
+​
+public static class Kata 
+{
+    public static int TotalPoints(string[] games) 
+    {
+        int wins = games.Count(s => s.Split(':').Select(int.Parse).ToArray() is [var x, var y] && x > y);
+        int draws = games.Count(s => s.Split(':').Select(int.Parse).ToArray() is [var x, var y] && x == y);
+        return wins * 3 + draws;
+    }
+}
