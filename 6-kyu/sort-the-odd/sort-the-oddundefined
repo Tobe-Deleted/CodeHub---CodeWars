@@ -1,0 +1,18 @@
+using System.Linq;
+public class Kata
+{
+    public static int[] SortArray(int[] array)
+    {
+      int counter = 0;
+      int[] odds = array.Where(x => x % 2 != 0).OrderBy(x => x).ToArray();
+      for(int i = 0; i < array.Length; i++)
+      {
+          if(array[i] % 2 != 0)
+          {
+              array[i] = odds[counter];
+              counter++;
+          }
+      }
+      return array;
+    }
+}
