@@ -1,0 +1,6 @@
+public class MathCheck {
+    public static int AreaOrPerimeter(int l, int w) 
+    {
+        return l == w ? w*l : w+w+l+l;
+    }
+}
