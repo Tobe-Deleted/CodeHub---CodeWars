@@ -1,0 +1,9 @@
+using System;
+using System.Linq;
+public class Kata
+{
+    public static int SumMix(object[] x)
+    {
+        return x.Select(n => int.Parse(Convert.ToString(n))).ToArray().Sum();
+    }
+}
