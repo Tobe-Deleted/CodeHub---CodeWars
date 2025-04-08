@@ -1,0 +1,12 @@
+ 
+using System.Collections.Generic;
+using System.Linq;
+using System;
+​
+public class Kata
+{
+  public static Dictionary<char, int> Count(string str)
+  {
+    return str.GroupBy(c => c).ToDictionary(ch => ch.Key, ch => ch.Count());
+  }
+}
