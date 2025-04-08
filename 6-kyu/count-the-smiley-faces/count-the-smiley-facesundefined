@@ -1,35 +1,36 @@
+//practising the open/closed principle of SOLID
 using System;
+using System.Linq;
+​
+public interface ISmileyValidator
+{
+    bool IsValid(string smiley);
+}
+​
+public class ClassicSmileyValidator : ISmileyValidator
+{
+    public bool IsValid(string smiley)
+    {
+        if (smiley.Length == 2)
+            return IsEyes(smiley[0]) && IsMouth(smiley[1]);
+​
+        if (smiley.Length == 3)
+            return IsEyes(smiley[0]) && IsNose(smiley[1]) && IsMouth(smiley[2]);
+​
+        return false;
+    }
+​
+    private bool IsEyes(char c) => c == ':' || c == ';';
+    private bool IsNose(char c) => c == '-' || c == '~';
+    private bool IsMouth(char c) => c == ')' || c == 'D';
+}
+​
 public static class Kata
 {
-    public static int CountSmileys(string[] smileys) 
+    public static int CountSmileys(string[] smileys, ISmileyValidator validator = null)
     {
-        int count = 0;
-        foreach(string str in smileys)
-        {
-            if(str.Length > 1) 
-                if(IsSmiley(str))
-                    count++;
-        }
-        return count;
-    }
-    
-    private static bool IsSmiley(string smiley)
-    {
-        
-        if (smiley[0] == ';' || smiley[0] == ':')
-        {
-            if(smiley.Length == 2)
-            {
-                if(smiley[1] == ')' || smiley[1] == 'D')
-                    return true;
-            }
-            else
-            {
-                if(smiley[1] == '-' || smiley[1] == '~')
-                    if(smiley[2] == ')' || smiley[2] == 'D')
-                        return true;
-            }
-        }
-        return false;
+        validator = validator ?? new ClassicSmileyValidator();
+​
+        return smileys.Count(validator.IsValid);
     }
 }
