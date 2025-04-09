@@ -3,8 +3,5 @@ using System;
 ​
 public static class Kata
 {
-  public static bool PowerOfTwo(int n)
-  {
-    public static bool PowerOfTwo(int n) => new BigInteger(n).IsPowerOfTwo;
-  }
+  public static bool PowerOfTwo(int n) => new BigInteger(n).IsPowerOfTwo;
 }
