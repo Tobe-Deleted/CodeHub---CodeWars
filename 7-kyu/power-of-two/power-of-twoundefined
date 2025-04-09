@@ -4,22 +4,15 @@ using System.Collections.Generic;
 ​
 public static class Kata
 {
-    private static readonly List<int> _powersOfTwo = new() { 1 };
-​
-    public static bool PowerOfTwo(int n)
-    {
-        if (n < 1) return false;
-​
-        // Expand the cache if needed
-        int last = _powersOfTwo[^1];
-        while (last < n)
-        {
-            last *= 2;
-            _powersOfTwo.Add(last);
-        }
-​
-        // Use binary search for faster lookup
-        return _powersOfTwo.BinarySearch(n) >= 0;
-    }
+      private static List<int> _numbers = new List<int>{1};
+      public static bool PowerOfTwo(int n)
+      {
+          if(_numbers.Contains(n))return true;
+          for(int i = _numbers[^1]; i <= n; i *= 2)
+          {
+              if(!_numbers.Contains(i))_numbers.Add(i);
+              if(i == n) return true;
+          }
+          return false;
+      }
 }
-​
