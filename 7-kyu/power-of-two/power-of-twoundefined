@@ -1,6 +1,6 @@
  
 using System;
-​
+using System.Numerics;
 public static class Kata
 {
   public static bool PowerOfTwo(int n) => new BigInteger(n).IsPowerOfTwo;
