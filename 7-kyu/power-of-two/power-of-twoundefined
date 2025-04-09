@@ -4,11 +4,22 @@ using System.Collections.Generic;
 ​
 public static class Kata
 {
-      public static bool PowerOfTwo(int n)
-      {
-          if (n < 1) return false;
+    private static readonly List<int> _powersOfTwo = new() { 1 };
 ​
-        // A number is a power of two if it has only one bit set in binary.
-        return (n & (n - 1)) == 0;
-      }
+    public static bool PowerOfTwo(int n)
+    {
+        if (n < 1) return false;
+​
+        // Expand the cache if needed
+        int last = _powersOfTwo[^1];
+        while (last < n)
+        {
+            last *= 2;
+            _powersOfTwo.Add(last);
+        }
+​
+        // Use binary search for faster lookup
+        return _powersOfTwo.BinarySearch(n) >= 0;
+    }
 }
+​
