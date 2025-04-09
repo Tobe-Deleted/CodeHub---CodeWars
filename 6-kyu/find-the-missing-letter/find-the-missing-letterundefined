@@ -1,0 +1,20 @@
+ 
+public class Kata
+{
+    public static char FindMissingLetter(char[] array)
+    {
+        string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        int j = 0;
+        char missingLetter = '0';
+        for(int i = alphabet.IndexOf(array[0]); i < 54; i++)
+        {
+            if(array[j] != alphabet[i])
+            {
+                missingLetter = alphabet[i];
+                break;
+            }
+            j++;
+        }
+        return missingLetter;
+    }
+}
