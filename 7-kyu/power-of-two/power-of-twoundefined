@@ -1,0 +1,18 @@
+ 
+using System;
+using System.Collections.Generic;
+​
+public static class Kata
+{
+      private static List<int> _numbers = new List<int>{};
+      public static bool PowerOfTwo(int n)
+      {
+          if(n == 1 || _numbers.Contains(n))return true;
+          for(int i = 1; i <= n; i *= 2)
+          {
+              if(!_numbers.Contains(i))_numbers.Add(i);
+              if(i == n) return true;
+          }
+          return false;
+      }
+}
