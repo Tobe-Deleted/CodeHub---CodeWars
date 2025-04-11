@@ -1,0 +1,17 @@
+using System;
+​
+public class NthSeries 
+{
+  
+    public static string seriesSum (int n) 
+    {
+        decimal result = 0.00m;
+        decimal denominator = 1;
+        for(int i = 0; i < n; i++)
+        {
+            result += 1/denominator;
+            denominator += 3;
+        }
+        return Convert.ToString(Math.Round(result, 2));
+    }
+}
