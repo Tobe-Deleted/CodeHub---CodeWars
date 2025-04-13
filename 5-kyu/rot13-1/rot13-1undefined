@@ -1,0 +1,24 @@
+ 
+using System;
+public class Kata
+{
+    public static string Rot13(string message)
+    {
+        string result = "";
+        foreach(char ch in message)
+        {
+            if(Char.IsLetter(ch))
+            {
+                int chValue = (int)ch;
+                chValue += 13;
+                if(chValue <= 103 && chValue > 90 || chValue > 122) chValue += -26;
+                result += (char)chValue;
+            }
+            else
+            {
+                result += ch;
+            }
+        }
+      return result;
+    }
+}
