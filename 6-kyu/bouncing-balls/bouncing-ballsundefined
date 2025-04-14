@@ -1,0 +1,37 @@
+ 
+public class BouncingBall 
+{
+  
+    public static int bouncingBall(double h, double bounce, double window) 
+    {
+        bool valid = Checks(h, bounce, window);
+        return valid ? 1 + (2 * Bounces(h, bounce, window)) : -1;
+    }
+  
+    private static int Bounces(double h, double bounce, double window)
+    {
+        int count = 0;
+        for(int i = 0; i < int.MaxValue; i++)
+        {
+            h *= bounce;
+            if(h <= window)
+            {
+                break;
+            }
+                count++;
+        }
+        return count;
+    }
+    private static bool Checks(double h, double bounce, double window)
+    {
+        if(
+              h <= window ||
+              h < 0 ||
+              window < 0 ||
+              bounce < 0 ||
+              bounce >= 1
+          ) 
+            return false;
+        return true;
+    }
+}
