@@ -1,0 +1,38 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+public class DirReduction 
+{
+    public static string[] dirReduc(string[] arr) 
+    {
+        Stack<String> result = new Stack<String>();
+        Dictionary<String, String> opposites = new Dictionary<String, String>
+        {
+          {"NORTH", "SOUTH"},
+          {"SOUTH", "NORTH"},
+          {"EAST", "WEST"},
+          {"WEST", "EAST"}
+        };
+      
+        foreach(string direction in arr)
+        {
+            if(result.Count == 0)
+            {
+                result.Push(direction);
+            }
+            else
+            {
+                string top = result.Peek();
+                if(opposites[top] == direction)
+                {
+                    result.Pop();
+                }
+                else
+                {
+                    result.Push(direction);
+                }
+            }
+        }
+        return result.Reverse().ToArray();
+    }
+}
