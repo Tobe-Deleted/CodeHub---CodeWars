@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+public class ASum 
+{
+    private static Dictionary<long, long> _cache = new Dictionary<long, long> ();
+    private static long latestTotalValue = 0;
+    public static long findNb(long requestedValue) 
+    {
+        if(_cache.ContainsKey(requestedValue)) return _cache[requestedValue];
+        if(requestedValue < latestTotalValue) return -1;
+        long CurrentTotalValue = latestTotalValue;
+        for(long i = _cache.Count +1; CurrentTotalValue < requestedValue; i++)
+        {
+            CurrentTotalValue += i * i * i;
+            _cache.Add(CurrentTotalValue, i);
+            latestTotalValue = CurrentTotalValue;
+            if(CurrentTotalValue == requestedValue) return i;
+        }
+        return -1;
+    }
+}
+​
